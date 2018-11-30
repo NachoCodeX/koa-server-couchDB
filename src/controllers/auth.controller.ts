@@ -4,9 +4,10 @@ import { UserHelpers } from "../helpers/user.helpers";
 import { SecurityService } from "../security";
 import { Container, Inject } from 'typescript-ioc'
 import autobind from 'autobind-decorator'
-import { IUserModel } from "../models/user/user.interface";
 import { StudentHelpers } from "../helpers/student.helpers";
 import { IStudentModel } from "../models/student/student.interface";
+import { HTTP_201_CREATED } from ".";
+import { handleError } from "../utils";
 
 @autobind
 class AuthController {
@@ -24,15 +25,13 @@ class AuthController {
 
     async signUp(ctx: Context) {
         try {
-
             const data: IStudentModel = ctx.request.body as IStudentModel
-
-            console.log(data);
             await this._.create(data)
-            ctx.status = 200
+            ctx.status = HTTP_201_CREATED
         } catch (error) {
-            console.log(error);
-            ctx.throw(500)
+            const { status, message } = handleError(error)
+            ctx.status = status
+            ctx.body = message
         }
     }
 }

@@ -23,7 +23,6 @@ export class User implements IUserModel {
         this.gender = gender
         this.isActive = isActive
         this.password = password
-        // this.uuid = uuid
     }
 
     process(response: Nano.DocumentInsertResponse) {

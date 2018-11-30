@@ -6,6 +6,7 @@ import { Inject } from "typescript-ioc";
 import { StudentHelpers } from "../helpers/student.helpers";
 import { ID } from "../types";
 import autobind from "autobind-decorator";
+import { HTTP_204_NO_CONTENT } from ".";
 
 
 @autobind
@@ -15,10 +16,8 @@ export class StudentController {
     async delete(ctx: Context) {
         const _id: ID = ctx.params._id
         try {
-            console.log("QUE PEDO!!!!!!!!!! DELETE");
-
             await this._.delete(_id)
-            ctx.status = 200;
+            ctx.status = HTTP_204_NO_CONTENT;
 
         } catch (error) {
             console.log(error);
@@ -35,7 +34,7 @@ export class StudentController {
         try {
             this._.update(_id, ctx.request.body)
 
-            ctx.status = 200;
+            ctx.status = HTTP_204_NO_CONTENT;
 
         } catch (error) {
             const { status, message } = handleError(error)
