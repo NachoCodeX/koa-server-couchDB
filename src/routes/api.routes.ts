@@ -1,18 +1,12 @@
-import ApiController from "../controllers/api.controller";
+import _ from "../controllers/api.controller";
 import * as KoaRouter from 'koa-router'
 import { isAuth } from "../middlewares/auth.middleware";
 
 
 const router = new KoaRouter({ prefix: '/api' })
-router.get('/test', ApiController.test)
-
-//TEACHER CONTROLLERS
-router.post('/teacher', ApiController.teacherCtrl.createTeacher)
-router.put('/teacher/:uuid', ApiController.teacherCtrl.updateTeacher)
-router.delete('/teacher/:uuid', ApiController.teacherCtrl.deleteTeacher)
-
 //STUDENT CONTROLLERS
-router.put('/student/:_id', isAuth, ApiController.studentCtrl.update)
-router.delete('/student/:_id', isAuth, ApiController.studentCtrl.delete)
+router.post('/students/', isAuth, _.studentCtrl.create)
+router.put('/students/:_id', isAuth, _.studentCtrl.update)
+router.delete('/students/:_id', isAuth, _.studentCtrl.remove)
 
 export default router

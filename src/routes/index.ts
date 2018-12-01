@@ -1,10 +1,8 @@
 import ApiRouter from './api.routes'
-import AuthRouter from './auth.routes'
 import * as KoaRouter from 'koa-router'
 
 const routers: any[] = [
     ApiRouter,
-    AuthRouter
 ]
 
 

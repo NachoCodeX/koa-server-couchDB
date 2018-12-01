@@ -6,5 +6,4 @@ export interface IStudentModel extends IUserModel {
     isStudent: boolean,
     specialty: number,
     semester: number
-
 }

@@ -7,16 +7,20 @@ export class Student implements User, IStudentModel {
     specialty: number;
     semester: number;
     isStudent: boolean;
-    avatar?: string; email: string;
+    avatar?: string;
+    email: string;
     password: string;
     firstName: string;
     lastName: string;
     gender: string;
     isActive?: boolean;
+    createdAt: string;
+    updatedAt: string;
     _id?: string;
     _rev?: string;
 
-    constructor({ avatar, firstName, lastName, email, gender, isActive, isStudent, career, password, semester, specialty }: IStudentModel) {
+    constructor({ updatedAt, createdAt, avatar, firstName, lastName, email, gender, isActive, isStudent, career, password, semester, specialty }: IStudentModel) {
+
         this.avatar = avatar
         this.firstName = firstName
         this.lastName = lastName
@@ -28,6 +32,9 @@ export class Student implements User, IStudentModel {
         this.password = password
         this.semester = semester
         this.specialty = specialty
+
+        this.updatedAt = updatedAt
+        this.createdAt = createdAt
     }
 
 
