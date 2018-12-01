@@ -7,14 +7,15 @@ const { decodeToken } = new SecurityService()
 
 
 export async function isAuth(ctx: Context, next: Function) {
-    const auth = ctx.request.headers.authorization
+    const auth = ctx.request.headers.authorization,
+        unauthorizedError: any = { message: 'Unauthorized', status: HTTP_401_UNAUTHORIZED };
     let token = ''
 
     try {
         if (auth)
             token = auth.split(' ')[1]
         else
-            throw { message: 'Unauthorized', status: HTTP_401_UNAUTHORIZED }
+            throw unauthorizedError
 
         const sub = await decodeToken(token)
         console.log(sub === NODE_NAME);
@@ -22,7 +23,7 @@ export async function isAuth(ctx: Context, next: Function) {
         if (sub === NODE_NAME)
             await next()
         else
-            throw { message: 'Unauthorized', status: HTTP_401_UNAUTHORIZED }
+            throw unauthorizedError
 
     } catch (error) {
         console.log(error);
