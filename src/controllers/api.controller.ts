@@ -6,7 +6,7 @@ import { StudentController } from "./student.controller";
 
 @autobind
 class ApiController {
-    @Inject public studentCtrl: StudentController
+    @Inject public student: StudentController
 }
 
 

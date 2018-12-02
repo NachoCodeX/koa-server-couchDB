@@ -13,13 +13,14 @@ export class Student implements User, IStudentModel {
     firstName: string;
     lastName: string;
     gender: string;
+    role:string;
     isActive?: boolean;
     createdAt: string;
     updatedAt: string;
     _id?: string;
     _rev?: string;
 
-    constructor({ updatedAt, createdAt, avatar, firstName, lastName, email, gender, isActive, isStudent, career, password, semester, specialty }: IStudentModel) {
+    constructor({role, updatedAt, createdAt, avatar, firstName, lastName, email, gender, isActive, isStudent, career, password, semester, specialty }: IStudentModel) {
 
         this.avatar = avatar
         this.firstName = firstName
@@ -32,7 +33,7 @@ export class Student implements User, IStudentModel {
         this.password = password
         this.semester = semester
         this.specialty = specialty
-
+        this.role=role
         this.updatedAt = updatedAt
         this.createdAt = createdAt
     }

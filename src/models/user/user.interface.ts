@@ -7,6 +7,7 @@ export interface IUserModel extends MaybeDocument {
     firstName: string,
     lastName: string,
     gender: string,
+    role:string,
     isActive?: boolean,
     createdAt?: string,
     updatedAt?: string

@@ -9,21 +9,10 @@ export class User implements IUserModel {
     lastName: string;
     gender: string;
     isActive?: boolean;
-    // uuid: string;
+    role:string;
     _id?: string;
     _rev?: string;
 
-    constructor({ avatar, email, firstName, gender, isActive, lastName, password }: IUserModel) {
-        this._id = undefined
-        this._rev = undefined
-        this.avatar = avatar
-        this.email = email
-        this.firstName = firstName
-        this.lastName = lastName
-        this.gender = gender
-        this.isActive = isActive
-        this.password = password
-    }
 
     process(response: Nano.DocumentInsertResponse) {
         if (response.ok) {

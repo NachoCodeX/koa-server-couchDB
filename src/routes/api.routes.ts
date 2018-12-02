@@ -5,8 +5,8 @@ import { isAuth } from "../middlewares/auth.middleware";
 
 const router = new KoaRouter({ prefix: '/api' })
 //STUDENT CONTROLLERS
-router.post('/students/', isAuth, _.studentCtrl.create)
-router.put('/students/:_id', isAuth, _.studentCtrl.update)
-router.delete('/students/:_id', isAuth, _.studentCtrl.remove)
+router.post('/students/', isAuth, _.student.create)
+router.put('/students/:_id', isAuth, _.student.update)
+router.delete('/students/:_id', isAuth, _.student.remove)
 
 export default router

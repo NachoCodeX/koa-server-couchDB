@@ -1,4 +1,3 @@
-import { db, SIIDB } from "../models";
 import { IError } from "../interfaces";
 
 export async function checkEmailExists(email: string) {

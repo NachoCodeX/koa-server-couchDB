@@ -1,8 +1,14 @@
 import * as Nano from 'nano'
-import { COUCHDB_URI } from '../config';
+import { COUCHDB_URI, DB } from '../config';
 
-export const SIIDB: string = 'siidb'
 const nano = Nano(COUCHDB_URI)
 
-export const db = nano.db.use(SIIDB)
+
+
+// nano.db.list()
+//     .then((dbs: string[]) => dbs.some(db => db === SIIDB))
+//     .then((isExist: boolean) => isExist ? nano.db.create(SIIDB) : null)
+
+export const db = nano.db.use(DB)
+
 
